@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    >
+
+    <utility
+        provides="Products.ZenModel.interfaces.IAction"
+        factory=".actions.ConnectorAction"
+        name="ee_connector"
+        />
+
+    <browser:resourceDirectory
+        name="ee"
+        directory="resources"
+        />    
+
+    <browser:page
+        name="ee"
+        template="settings.pt"
+        for="*"
+        permission="zope2.Public"
+        />    
+    
+    <browser:directRouter
+        name="ee_router"
+        for="*"
+        class=".router.EeRouter"
+        namespace="Zenoss.remote"
+        permission="zenoss.View"
+        />    
+
+</configure>
