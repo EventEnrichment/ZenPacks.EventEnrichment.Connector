@@ -32,10 +32,10 @@ SEVERITY_MAP = {
 # api_token will be configured through zenoss Notification UI
 
 # for development in lab 
-ESRV_PROTO_HOST_PORT = 'http://172.16.0.199:3001'
+#ESRV_PROTO_HOST_PORT = 'http://172.16.0.199:3001'
 
 # this will become our public event API endpoint
-#ESRV_PROTO_HOST_PORT = 'http://eb-server.eventenrichment.org:3000'
+ESRV_PROTO_HOST_PORT = 'http://eb-server.eventenrichment.org:3000'
 
 EVENT_URL = ESRV_PROTO_HOST_PORT + '/api/event'
 CLEAR_URL = ESRV_PROTO_HOST_PORT + '/api/clear'
