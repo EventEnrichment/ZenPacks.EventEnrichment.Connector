@@ -25,7 +25,7 @@ class EeRouter(ZopeDirectRouter):
         dmd.ee_api_key = ee_api_key
         
         # flash msg and redirect to reload page
-        MessageSender(dmd).sendToBrowser('info', 'EE Api Key saved')
+        MessageSender(dmd).sendToBrowser('info', 'EE Api Token saved')
         redir_url = self.request['SERVER_URL'] + '/zport/dmd/ee'
         self.request.response.redirect(redir_url)
 

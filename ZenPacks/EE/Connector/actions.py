@@ -35,10 +35,10 @@ SEVERITY_MAP = {
 #ESRV_PROTO_HOST_PORT = 'http://172.16.0.199:3001'
 
 # this will become our public event API endpoint
-ESRV_PROTO_HOST_PORT = 'http://eb-server.eventenrichment.org:3000'
+ESRV_PROTO_HOST_PORT = 'http://eb-server.eventenrichment.org'
 
-EVENT_URL = ESRV_PROTO_HOST_PORT + '/api/event'
-CLEAR_URL = ESRV_PROTO_HOST_PORT + '/api/clear'
+EVENT_URL = ESRV_PROTO_HOST_PORT + '/api/v1/event'
+CLEAR_URL = ESRV_PROTO_HOST_PORT + '/api/v1/clear'
                  
 class ConnectorAction(IActionBase):
     implements(IAction)
@@ -48,12 +48,10 @@ class ConnectorAction(IActionBase):
     actionContentInfo = ICommandActionContentInfo
 
     def updateContent(self, content=None, data=None):
-#        log.info("%s updateContent: content=%s data=%s", self, content, data)
         log.debug("%s updateContent: content=%s data=%s", self, content, data)
         content.update(data)
 
     def execute(self, notification, signal):
-#        log.info("%s execute: notification=%s signal=%s", self, notification, signal)
         log.debug("%s execute: notification=%s signal=%s", self, notification, signal)
 
         # read api_key from storage
@@ -77,7 +75,7 @@ class ConnectorAction(IActionBase):
                 'local_instance_id': event.uuid,
                 'source_location': actor.element_identifier
                 }
-            packet = { 'api_key': api_key, 'clear': pbody }
+            packet = { 'api_token': api_key, 'clear': pbody }
             
         else:
             url = EVENT_URL
@@ -86,7 +84,7 @@ class ConnectorAction(IActionBase):
                 'creation_time': self._epochMsToIso8601(event.first_seen_time),
                 'last_time': self._epochMsToIso8601(event.last_seen_time),
                 'severity': SEVERITY_MAP[occurrence.severity],
-                'message': occurrence.message,
+                'msg': occurrence.message,
                 'event_class': occurrence.event_class,
                 'source_location': actor.element_identifier,
                 'source_component': actor.element_sub_identifier,
@@ -95,7 +93,7 @@ class ConnectorAction(IActionBase):
                 'repeat_count': event.count
                 }
 
-            packet = { 'api_key': api_key, 'event': pbody }
+            packet = { 'api_token': api_key, 'event': pbody }
         
         request_body = json.dumps(packet)
 

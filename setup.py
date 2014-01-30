@@ -3,7 +3,7 @@
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
 NAME = "ZenPacks.EE.Connector"
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 AUTHOR = "mike@eventenrichment.org"
 LICENSE = "Apache"
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.EE']

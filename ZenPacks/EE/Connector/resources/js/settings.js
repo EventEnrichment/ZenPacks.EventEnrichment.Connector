@@ -17,7 +17,7 @@
                 }
             },
             items: [{
-                fieldLabel: 'EE Api Key',
+                fieldLabel: 'EE Api Token',
                 labelWidth: 200,
                 name: 'ee_api_key',
                 xtype: 'textfield'
