@@ -29,10 +29,8 @@ SEVERITY_MAP = {
     SEVERITY_CRITICAL: EE_SEVERITY_CRITICAL
     }
 
-# api_token will be configured through zenoss Notification UI
-
 # for development in lab 
-#ESRV_PROTO_HOST_PORT = 'http://172.16.0.199:3001'
+#ESRV_PROTO_HOST_PORT = 'http://172.16.0.199:3000'
 
 # this will become our public event API endpoint
 ESRV_PROTO_HOST_PORT = 'http://eb-server.eventenrichment.org'
@@ -98,7 +96,10 @@ class ConnectorAction(IActionBase):
         request_body = json.dumps(packet)
 
         # post request to esrv
-        headers = {'Accept' : 'application/json'}
+        headers = {
+            'Accept' : 'application/json', 
+            'Content-type' : 'application/json' 
+            }
         req = urllib2.Request(url, request_body, headers)
         try:
             response = urllib2.urlopen(req, None, 60)
