@@ -33,7 +33,7 @@ SEVERITY_MAP = {
 #ESRV_PROTO_HOST_PORT = 'http://172.16.0.199:3000'
 
 # this will become our public event API endpoint
-ESRV_PROTO_HOST_PORT = 'http://eb-server.eventenrichment.org'
+ESRV_PROTO_HOST_PORT = 'http://eep.eventenrichment.com'
 
 EVENT_URL = ESRV_PROTO_HOST_PORT + '/api/v1/event'
 CLEAR_URL = ESRV_PROTO_HOST_PORT + '/api/v1/clear'
