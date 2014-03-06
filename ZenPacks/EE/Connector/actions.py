@@ -29,11 +29,11 @@ SEVERITY_MAP = {
     SEVERITY_CRITICAL: EE_SEVERITY_CRITICAL
     }
 
-# for development in lab 
-#ESRV_PROTO_HOST_PORT = 'http://172.16.0.199:3000'
+# public endpoint
+ESRV_PROTO_HOST_PORT = 'https://eep.eventenrichment.com'
 
-# this will become our public event API endpoint
-ESRV_PROTO_HOST_PORT = 'http://eep.eventenrichment.com'
+# staging endpoint
+#ESRV_PROTO_HOST_PORT = 'https://eeps.eventenrichment.com'
 
 EVENT_URL = ESRV_PROTO_HOST_PORT + '/api/v1/event'
 CLEAR_URL = ESRV_PROTO_HOST_PORT + '/api/v1/clear'
