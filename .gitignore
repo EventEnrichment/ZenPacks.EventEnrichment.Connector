@@ -6,3 +6,4 @@ setuptools*
 *.egg
 *.egg-info
 *dist
+readme.txt
