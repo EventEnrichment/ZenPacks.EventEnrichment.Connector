@@ -1,4 +1,4 @@
-ZenPacks.EE.Connector
+ZenPacks.EventEnrichment.Connector
 =====================
 
 A Zenoss 4 Connector for the [Event Enrichment Platform](http://www.eventenrichment.com).
