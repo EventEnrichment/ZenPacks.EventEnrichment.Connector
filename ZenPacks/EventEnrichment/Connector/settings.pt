@@ -1,0 +1,8 @@
+<tal:block metal:use-macro="here/page_macros/old-new">
+<tal:block metal:fill-slot="title">EEP</tal:block>
+
+<tal:block metal:fill-slot="contentPane">
+<script src="/++resource++eep/js/settings.js"></script>
+<div id="eep-settings"></div>
+</tal:block>
+</tal:block>

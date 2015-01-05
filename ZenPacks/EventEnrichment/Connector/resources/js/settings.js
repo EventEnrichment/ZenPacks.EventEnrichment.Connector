@@ -1,12 +1,12 @@
 (function(){
     Ext.onReady(function(){
-        var router = Zenoss.remote.EeRouter;
+        var router = Zenoss.remote.EepRouter;
 
-        Ext.define('ee.SettingsPanel', {
+        Ext.define('eep.SettingsPanel', {
             extend: 'Ext.form.Panel',
-            alias: 'widget.ee-settings-panel',
-            title: 'EE Settings',
-	    id: 'eeSettingsPanel',
+            alias: 'widget.eep-settings-panel',
+            title: 'EEP Settings',
+	    id: 'eepSettingsPanel',
             defaults: {
                 listeners: {
                     specialkey: function(field, event) {
@@ -17,9 +17,9 @@
                 }
             },
             items: [{
-                fieldLabel: 'EE Api Token',
+                fieldLabel: 'EEP Api Token',
                 labelWidth: 200,
-                name: 'ee_api_key',
+                name: 'eep_api_key',
                 xtype: 'textfield'
             }],
             dockedItems: [{
@@ -30,7 +30,7 @@
 		    xtype: 'button',
                     text: 'Save',
                     handler: function() {
-			var panel = Ext.getCmp('eeSettingsPanel');
+			var panel = Ext.getCmp('eepSettingsPanel');
                         panel.submit();
                     }
                 }]
@@ -49,8 +49,8 @@
             }
         });
 
-        var settings = Ext.create(ee.SettingsPanel, {
-            renderTo: 'ee-settings'
+        var settings = Ext.create(eep.SettingsPanel, {
+            renderTo: 'eep-settings'
         });
 
     }); // End Ext.onReady.

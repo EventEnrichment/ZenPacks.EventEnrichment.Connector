@@ -7,25 +7,25 @@
     <utility
         provides="Products.ZenModel.interfaces.IAction"
         factory=".actions.ConnectorAction"
-        name="ee_connector"
+        name="eep_connector"
         />
 
     <browser:resourceDirectory
-        name="ee"
+        name="eep"
         directory="resources"
         />    
 
     <browser:page
-        name="ee"
+        name="eep"
         template="settings.pt"
         for="*"
         permission="zope2.Public"
         />    
     
     <browser:directRouter
-        name="ee_router"
+        name="eep_router"
         for="*"
-        class=".router.EeRouter"
+        class=".router.EepRouter"
         namespace="Zenoss.remote"
         permission="zenoss.View"
         />    

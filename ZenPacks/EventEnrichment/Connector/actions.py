@@ -1,5 +1,5 @@
 import logging
-log = logging.getLogger('zen.ZenPacks.EE.Connector')
+log = logging.getLogger('zen.ZenPacks.EventEnrichment.Connector')
 
 import json
 import datetime
@@ -15,18 +15,18 @@ from Products.Zuul.interfaces.actions import ICommandActionContentInfo
 from Products.ZenUtils.guid.guid import GUIDManager
 from Products.ZenModel.ZVersion import VERSION as ZENOSS_VERSION
 
-from ZenPacks.EE.Connector.router import EE_API_KEY
+from ZenPacks.EventEnrichment.Connector.router import EEP_API_KEY
 
-EE_SEVERITY_INFO = 'info'
-EE_SEVERITY_WARNING = 'warning'
-EE_SEVERITY_ERROR = 'error'
-EE_SEVERITY_CRITICAL = 'critical'
+EEP_SEVERITY_INFO = 'info'
+EEP_SEVERITY_WARNING = 'warning'
+EEP_SEVERITY_ERROR = 'error'
+EEP_SEVERITY_CRITICAL = 'critical'
 
 SEVERITY_MAP = { 
-    SEVERITY_INFO: EE_SEVERITY_INFO,
-    SEVERITY_WARNING: EE_SEVERITY_WARNING,
-    SEVERITY_ERROR: EE_SEVERITY_ERROR,
-    SEVERITY_CRITICAL: EE_SEVERITY_CRITICAL
+    SEVERITY_INFO: EEP_SEVERITY_INFO,
+    SEVERITY_WARNING: EEP_SEVERITY_WARNING,
+    SEVERITY_ERROR: EEP_SEVERITY_ERROR,
+    SEVERITY_CRITICAL: EEP_SEVERITY_CRITICAL
     }
 
 # public endpoint
@@ -42,7 +42,7 @@ class ConnectorAction(IActionBase):
     implements(IAction)
 
     id = 'ee_connector'
-    name = 'EE Connector'
+    name = 'EEP Connector'
     actionContentInfo = ICommandActionContentInfo
 
     def updateContent(self, content=None, data=None):
@@ -53,9 +53,9 @@ class ConnectorAction(IActionBase):
         log.debug("%s execute: notification=%s signal=%s", self, notification, signal)
 
         # read api_key from storage
-        api_key = getattr(self.dmd, EE_API_KEY, None)
+        api_key = getattr(self.dmd, EEP_API_KEY, None)
         if api_key == None:
-            log.error("EE Connector attribute %s not configured" % EE_API_KEY)
+            log.error("EEP Connector attribute %s not configured" % EEP_API_KEY)
             return
 
         event = signal.event

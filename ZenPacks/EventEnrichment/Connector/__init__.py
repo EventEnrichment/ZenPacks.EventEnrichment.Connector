@@ -12,17 +12,17 @@ unused(Globals)
 # https://github.com/cluther/ZenPacks.cluther.PagerDuty
 # for showing the way
 
-EE = 'ee'
+EEP = 'eep'
 
 for klass in (DataRoot, UserSettingsManager, ZenossInfo, ZenPackManager):
-    action = EE
+    action = EEP
     if klass == ZenPackManager:
         action = '../%s' % action
 
     fti = klass.factory_type_information[0]
     fti['actions'] = fti['actions'] + ({
-        'id': EE,
-        'name': 'EE',
+        'id': EEP,
+        'name': 'EEP',
         'action': action,
         'permissions': (ZEN_MANAGE_DMD,)
     },)
@@ -35,13 +35,13 @@ def update(self):
 
     Post-processes default behavior to add our subview. This allows the
     secondary navigation bar to be rendered properly when the user is
-    looking at the EE settings screen.
+    looking at the EEP settings screen.
     '''
     # original gets injected into locals by monkeypatch decorator.
     original(self)
 
     if '/zport/dmd/dataRootManage' in self.subviews:
-        self.subviews.append('/zport/dmd/%s' % EE)
+        self.subviews.append('/zport/dmd/%s' % EEP)
 
 
 @monkeypatch('Products.Zuul.facades.triggersfacade.TriggersFacade')

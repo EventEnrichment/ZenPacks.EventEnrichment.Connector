@@ -2,12 +2,12 @@
 # These variables are overwritten by Zenoss when the ZenPack is exported
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
-NAME = "ZenPacks.EE.Connector"
-VERSION = "1.0.0"
+NAME = "ZenPacks.EventEnrichment.Connector"
+VERSION = "1.0.1"
 AUTHOR = "mike@eventenrichment.com"
 LICENSE = "Apache"
-NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.EE']
-PACKAGES = ['ZenPacks', 'ZenPacks.EE', 'ZenPacks.EE.Connector']
+NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.EventEnrichment']
+PACKAGES = ['ZenPacks', 'ZenPacks.EventEnrichment', 'ZenPacks.EventEnrichment.Connector']
 INSTALL_REQUIRES = []
 COMPAT_ZENOSS_VERS = ">=4.2"
 PREV_ZENPACK_NAME = ""
